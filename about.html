@@ -1,0 +1,591 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>About Us - De-OrganicMaster</title>
+    
+    <!-- Importing Fonts to match the original design -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Crimson+Pro:wght@400;700&family=DM+Sans:wght@400;500;700&display=swap" rel="stylesheet">
+
+    <style>
+        /* --- CSS VARIABLES & RESET --- */
+        :root {
+            --primary-green: #196326;
+            --accent-green: #9ccc5e;
+            --light-bg: #f5faef;
+            --text-dark: #2D3748;
+            --text-light: #4A5568;
+            --white: #ffffff;
+            --border-radius: 8px;
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'DM Sans', sans-serif;
+            color: var(--text-dark);
+            line-height: 1.6;
+            background-color: var(--white);
+        }
+
+        h1, h2, h3, h4, h5, h6 {
+            font-family: 'Crimson Pro', serif;
+            color: var(--text-dark);
+            margin-bottom: 1rem;
+        }
+
+        a {
+            text-decoration: none;
+            color: inherit;
+            transition: 0.3s;
+        }
+
+        ul {
+            list-style: none;
+        }
+
+        img {
+            max-width: 100%;
+            height: auto;
+            border-radius: var(--border-radius);
+        }
+
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 20px;
+        }
+
+        .btn {
+            display: inline-block;
+            padding: 12px 30px;
+            border-radius: 50px;
+            font-weight: 500;
+            cursor: pointer;
+            text-align: center;
+        }
+
+        .btn-primary {
+            background-color: var(--primary-green);
+            color: var(--white);
+            border: 2px solid var(--primary-green);
+        }
+
+        .btn-primary:hover {
+            background-color: var(--light-bg);
+            color: var(--primary-green);
+        }
+
+        /* --- HEADER --- */
+        header {
+            background-color: var(--white);
+            box-shadow: 0 2px 10px rgba(0,0,0,0.05);
+            position: sticky;
+            top: 0;
+            z-index: 1000;
+        }
+
+        .navbar {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            height: 80px;
+        }
+
+        .logo {
+            font-size: 1.5rem;
+            font-weight: bold;
+            color: var(--primary-green);
+            display: flex;
+            align-items: center;
+            gap: 10px;
+        }
+
+        .nav-links {
+            display: flex;
+            gap: 30px;
+        }
+
+        .nav-links a:hover {
+            color: var(--primary-green);
+            text-decoration: underline;
+        }
+
+        .mobile-toggle {
+            display: none;
+            font-size: 24px;
+            cursor: pointer;
+        }
+
+        /* --- HERO SECTION --- */
+        .hero {
+            background: linear-gradient(135deg, var(--primary-green) 0%, #0f4119 100%);
+            color: var(--white);
+            padding: 80px 0;
+            text-align: center;
+        }
+
+        .hero h1 {
+            color: var(--white);
+            font-size: 2.5rem;
+            margin-bottom: 20px;
+        }
+
+        .hero p {
+            font-size: 1.2rem;
+            max-width: 800px;
+            margin: 0 auto 30px auto;
+            opacity: 0.9;
+        }
+
+        .highlight {
+            color: var(--accent-green);
+        }
+
+        /* --- WHO WE ARE --- */
+        .section {
+            padding: 80px 0;
+        }
+
+        .split-section {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 50px;
+            align-items: center;
+        }
+
+        /* --- MISSION & VISION --- */
+        .mission-vision-grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 30px;
+            margin-top: 40px;
+        }
+
+        .mv-card {
+            background: var(--light-bg);
+            padding: 40px;
+            border-radius: var(--border-radius);
+            text-align: center;
+        }
+
+        /* --- FOUNDER'S STORY --- */
+        .founder-section {
+            background-color: var(--white);
+        }
+
+        /* --- CORE VALUES (HEALERS) --- */
+        .values-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 20px;
+            margin-top: 40px;
+        }
+
+        .value-card {
+            background: var(--white);
+            border: 1px solid #e2e8f0;
+            padding: 30px;
+            border-radius: var(--border-radius);
+            transition: transform 0.3s;
+        }
+
+        .value-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 10px 20px rgba(0,0,0,0.05);
+        }
+
+        .value-letter {
+            font-size: 2rem;
+            font-weight: bold;
+            color: var(--primary-green);
+            display: block;
+            margin-bottom: 10px;
+        }
+
+        /* --- TESTIMONIALS --- */
+        .testimonials {
+            background-color: var(--light-bg);
+            text-align: center;
+        }
+
+        .testimonial-slider {
+            position: relative;
+            max-width: 800px;
+            margin: 40px auto 0;
+            background: var(--white);
+            padding: 40px;
+            border-radius: var(--border-radius);
+            box-shadow: 0 5px 15px rgba(0,0,0,0.05);
+        }
+
+        .slide {
+            display: none;
+        }
+
+        .slide.active {
+            display: block;
+            animation: fadeIn 0.5s;
+        }
+
+        .client-name {
+            font-weight: bold;
+            margin-top: 15px;
+            color: var(--primary-green);
+        }
+
+        .slider-controls {
+            margin-top: 20px;
+        }
+
+        .slider-btn {
+            background: none;
+            border: 2px solid var(--primary-green);
+            color: var(--primary-green);
+            padding: 5px 15px;
+            border-radius: 50%;
+            cursor: pointer;
+            margin: 0 5px;
+        }
+
+        .slider-btn:hover {
+            background: var(--primary-green);
+            color: var(--white);
+        }
+
+        /* --- CTA SECTION --- */
+        .cta-section {
+            background-color: var(--white);
+            text-align: center;
+            padding: 100px 0;
+        }
+
+        /* --- FOOTER --- */
+        footer {
+            background-color: #1a202c;
+            color: var(--white);
+            padding: 60px 0 20px;
+        }
+
+        .footer-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 40px;
+            margin-bottom: 40px;
+        }
+
+        .footer-col h4 {
+            color: var(--accent-green);
+            margin-bottom: 20px;
+        }
+
+        .footer-col ul li {
+            margin-bottom: 10px;
+        }
+
+        .footer-col ul li a:hover {
+            color: var(--accent-green);
+        }
+
+        .footer-bottom {
+            border-top: 1px solid #4a5568;
+            padding-top: 20px;
+            text-align: center;
+            font-size: 0.9rem;
+            color: #a0aec0;
+        }
+
+        /* --- RESPONSIVE --- */
+        @media (max-width: 768px) {
+            .nav-links {
+                display: none;
+                position: absolute;
+                top: 80px;
+                left: 0;
+                width: 100%;
+                background: var(--white);
+                flex-direction: column;
+                padding: 20px;
+                box-shadow: 0 5px 10px rgba(0,0,0,0.1);
+                text-align: center;
+            }
+
+            .nav-links.active {
+                display: flex;
+            }
+
+            .mobile-toggle {
+                display: block;
+            }
+
+            .split-section, .mission-vision-grid {
+                grid-template-columns: 1fr;
+            }
+
+            .hero h1 {
+                font-size: 2rem;
+            }
+        }
+
+        @keyframes fadeIn {
+            from { opacity: 0; }
+            to { opacity: 1; }
+        }
+    </style>
+</head>
+<body>
+
+    <!-- HEADER -->
+    <header>
+        <div class="container navbar">
+            <div class="logo">
+                <!-- Placeholder Icon for Logo -->
+                <svg width="30" height="30" viewBox="0 0 24 24" fill="currentColor"><path d="M12 2L2 22h20L12 2zm0 3.5l6.5 13h-13L12 5.5z"/></svg>
+                Aremo1 Alternative terapy
+            </div>
+            <nav>
+                <ul class="nav-links" id="navLinks">
+                    <li><a href="index.html">Home</a></li>
+                    <li><a href="about.html" style="color:var(--primary-green); font-weight:bold;">About Us</a></li>
+                    <li><a href="product.html">Products</a></li>
+                    <!-- <li><a href="consultation.html">Consultation</a></li> -->
+                    <li><a href="contact.html">Contact</a></li>
+                    <li><a href="contact.html" class="btn btn-primary" style="padding: 8px 20px; font-size: 0.9rem;">Take Assessment</a></li>
+                </ul>
+            </nav>
+            <div class="mobile-toggle" onclick="toggleMenu()">
+                &#9776; <!-- Hamburger Icon -->
+            </div>
+        </div>
+    </header>
+
+    <main>
+        <!-- HERO SECTION -->
+        <section class="hero">
+            <div class="container">
+                <div style="margin-bottom: 20px;">
+                    <span style="background: rgba(255,255,255,0.2); padding: 5px 15px; border-radius: 20px; font-size: 0.9rem;">About Aremo1 Alternative Therapy</span>
+                </div>
+                <h1>We are Pioneering African Bio Medicine <br> <span class="highlight">Medicine that heals.</span></h1>
+                <p>We restore health, hope, and wholeness by reviving Africa’s ancient healing wisdom, integrating it with modern science, and making natural, non-invasive wellness accessible to every household in Africa and beyond.</p>
+            </div>
+        </section>
+
+        <!-- WHO WE ARE -->
+        <section class="section">
+            <div class="container">
+                <div class="split-section">
+                    <div>
+                        <img src="ar8.jpeg" alt="About Us">
+                    </div>
+                    <div>
+                        <h2>Who We Are</h2>
+                        <p>Aremo1 Alternative Therapy is a wellness brand dedicated to restoring health, hope, and wholeness through nature. We combine Africa’s ancient healing wisdom with modern scientific evidence to deliver natural, non-invasive solutions for chronic and long-standing health conditions.</p>
+                        <br>
+                        <p>We take time to understand each individual’s body, identify the root cause of their health challenges, and provide personalised, holistic wellness support. Our goal is simple: <strong>to help people heal naturally and live healthier, happier lives.</strong></p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- MISSION & VISION -->
+        <section class="section" style="background-color: var(--light-bg);">
+            <div class="container">
+                <h2 style="text-align: center;">Our Approach</h2>
+                <div class="mission-vision-grid">
+                    <div class="mv-card">
+                        <h3>Mission</h3>
+                        <p>To inspire, educate, and empower Africans and the global community to heal naturally, prevent disease, and embrace a lifestyle of balance through herbal biomedicine, holistic wellness, and unity of purpose.</p>
+                    </div>
+                    <div class="mv-card">
+                        <h3>Vision</h3>
+                        <p>Our vision is an Africa where indigenous healing heritage sets the global gold standard for health – researched, respected, and recognized for its power to heal without harm.</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- FOUNDER'S STORY -->
+        <section class="section founder-section">
+            <div class="container">
+                <div class="split-section">
+                    <div>
+                        <h2>Founder's Story</h2>
+                        <h5>A Personal Journey That Became a Global Mission</h5>
+                        <br>
+                        <p>The story of Aremo1 Alternative Therapy began with a deep concern for health and well-being. After witnessing how many people struggle despite relying on conventional treatments, a simple but important question emerged: Could
+                             there be a more natural, </p>
+                        <br>
+                        <p><em>“supportive way to help the body heal and thrive?”</em></p>
+                        <br>
+                        <p>Aremo1 Alternative Therapy was born not as a business, but as a <strong>calling</strong> to reconnect people with nature and restore the dignity of African herbal medicine.</p>
+                    </div>
+                    <div>
+                        <img src="ar9.jpeg" alt="Founder">
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- CORE VALUES -->
+        <section class="section" style="background-color: var(--white);">
+            <div class="container">
+                <h2 style="text-align: center;">Core Values – HEALERS</h2>
+                <div class="values-grid">
+                    <div class="value-card">
+                        <span class="value-letter">H</span>
+                        <h3>Heritage</h3>
+                        <p>We preserve and promote Africa’s healing traditions.</p>
+                    </div>
+                    <div class="value-card">
+                        <span class="value-letter">E</span>
+                        <h3>Excellence</h3>
+                        <p>We uphold the highest global standards in science and service.</p>
+                    </div>
+                    <div class="value-card">
+                        <span class="value-letter">A</span>
+                        <h3>Accountability</h3>
+                        <p>We act with integrity, responsibility, and transparency.</p>
+                    </div>
+                    <div class="value-card">
+                        <span class="value-letter">L</span>
+                        <h3>Leadership</h3>
+                        <p>We pioneer African Herbal Biomedicine worldwide.</p>
+                    </div>
+                    <div class="value-card">
+                        <span class="value-letter">E</span>
+                        <h3>Empathy</h3>
+                        <p>We treat every client with compassion and respect.</p>
+                    </div>
+                    <div class="value-card">
+                        <span class="value-letter">R</span>
+                        <h3>Research</h3>
+                        <p>We validate our remedies through evidence and innovation.</p>
+                    </div>
+                    <div class="value-card">
+                        <span class="value-letter">S</span>
+                        <h3>Sustainability</h3>
+                        <p>We protect nature and ensure lasting wellness for future generations.</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- TESTIMONIALS -->
+        <section class="section testimonials">
+            <div class="container">
+                <h2>Testimonials from Our Centre</h2>
+                
+                <div class="testimonial-slider">
+                    <!-- Slide 1 -->
+                    <div class="slide active">
+                        <p>"Aremo1 Alternative Therapy listened to me, understood my health history, and guided me step-by-step. I started feeling better within weeks. I can say this is indeed natural wellness."</p>
+                        <div class="client-name">Angela Martins</div>
+                        <div style="font-size: 0.9rem; color: #666;">Garki – Abuja, Nigeria</div>
+                    </div>
+                    <!-- Slide 2 -->
+                    <div class="slide">
+                        <p>"Their herbal formulas restored my health when I had almost lost hope. The personalised care is unmatched."</p>
+                        <div class="client-name">Samuel Adewale</div>
+                        <div style="font-size: 0.9rem; color: #666;">Lekki – Lagos, Nigeria</div>
+                    </div>
+                    <!-- Slide 3 -->
+                    <div class="slide">
+                        <p>"I had tried so many treatments without improvement, but their herbal approach finally gave me real results. My energy, sleep, and overall health have transformed."</p>
+                        <div class="client-name">Joy Chukwu</div>
+                        <div style="font-size: 0.9rem; color: #666;">Port Harcourt – Rivers State, Nigeria</div>
+                    </div>
+
+                    <div class="slider-controls">
+                        <button class="slider-btn" onclick="changeSlide(-1)">&#10094;</button>
+                        <button class="slider-btn" onclick="changeSlide(1)">&#10095;</button>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- CTA SECTION -->
+        <section class="section cta-section">
+            <div class="container">
+                <h2>Begin Your Healing Journey Today</h2>
+                <p style="margin: 20px 0 30px; max-width: 600px; margin-left: auto; margin-right: auto;">Your body is designed to heal. All it needs is the right environment, the right guidance, and the right care.</p>
+                <a href="#" class="btn btn-primary">Book Consultation</a>
+            </div>
+        </section>
+    </main>
+
+    <!-- FOOTER -->
+    <footer>
+        <div class="container">
+            <div class="footer-grid">
+                <div class="footer-col">
+                    <div class="logo" style="margin-bottom: 20px; color: var(--white);">
+                        <!-- Placeholder Icon for Logo -->
+                        <svg width="30" height="30" viewBox="0 0 24 24" fill="currentColor"><path d="M12 2L2 22h20L12 2zm0 3.5l6.5 13h-13L12 5.5z"/></svg>
+                        Aremo1 Alternative Therapy
+                    </div>
+                    <p style="font-size: 0.9rem; opacity: 0.8;">At Aremo1 Alternative Therapy, we combine the power of African herbs with modern knowledge to help you feel your best.</p>
+                </div>
+                <div class="footer-col">
+                    <h4>Quick Links</h4>
+                    <ul>
+                        <li><a href="#">Home</a></li>
+                        <li><a href="index.html">Products</a></li>
+                        <li><a href="#">Consultation</a></li>
+                        
+                    </ul>
+                </div>
+                <div class="footer-col">
+                    <h4>Contact</h4>
+                    <ul style="font-size: 0.9rem; opacity: 0.8;">
+                        <li>4 Testimony Avenue, Ikot Eneobong, Calabar, Cross River State, Nigeria</li>
+                        <li>+234 706 534 1577</li>
+                        <li>aremo1alternative@gmail.com</li>
+                    </ul>
+                </div>
+            </div>
+            <div class="footer-bottom">
+                <p>Aremo1 Alternative Therapy. Copyright © 2025 All rights reserved.</p>
+            </div>
+        </div>
+    </footer>
+
+    <!-- JAVASCRIPT -->
+    <script>
+        // Mobile Menu Toggle
+        function toggleMenu() {
+            const nav = document.getElementById('navLinks');
+            nav.classList.toggle('active');
+        }
+
+        // Testimonial Slider
+        let currentSlide = 0;
+        const slides = document.querySelectorAll('.slide');
+
+        function changeSlide(direction) {
+            // Remove active class from current slide
+            slides[currentSlide].classList.remove('active');
+
+            // Calculate new slide index
+            currentSlide += direction;
+
+            // Loop logic
+            if (currentSlide >= slides.length) {
+                currentSlide = 0;
+            } else if (currentSlide < 0) {
+                currentSlide = slides.length - 1;
+            }
+
+            // Add active class to new slide
+            slides[currentSlide].classList.add('active');
+        }
+    </script>
+</body>
+</html>
